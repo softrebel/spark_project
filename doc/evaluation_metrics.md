@@ -34,6 +34,8 @@ $$F1 = 2 * \frac{Precision*Recall}{{Precision+Recall}}$$
 $$F1(macro) =  \frac{\sum f1_{i}}{N}$$
 ## منحنی ROC
 
+## محاسبه AUC
+
 
 ## منابع
 - https://en.wikipedia.org/wiki/Sensitivity_and_specificity
