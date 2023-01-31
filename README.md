@@ -1,7 +1,7 @@
-# Spark Project
-## a sample spark project written in python (with pyspark).
+# Spark ML Project
+## A sample spark project written in python (with pyspark).
 
-In this project, we use pyspark to build  classification models on a dataset.
+In this project, we use pyspark to load data and build  classification models step by step.
 
 ## Documentation
 To access documents in persian language see [this link](./doc) 
