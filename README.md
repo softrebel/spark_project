@@ -3,6 +3,9 @@
 
 In this project, we use pyspark to build  classification models on a dataset.
 
+## Documentation
+To access documents in persian language see [this link](./doc) 
+
 ## Requirements
 - For better performance use python 3.8 or longer (python 3.11 not supported by pyspark when this document wrote).
 - install dependencies:
