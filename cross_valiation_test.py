@@ -109,7 +109,7 @@ def evaluate_from_spark(predictions,model_name='Logistic Regression'):
     plt.title(f'ROC Curve - {model_name}')
     plt.legend(loc="lower right")
     # plt.show()
-    plt.savefig(f'{model_name}_roc.png')
+    plt.savefig(f'cs_{model_name}_roc.png')
     plt.close()
 
 
@@ -216,21 +216,21 @@ if __name__ == "__main__":
     print(assembled_df.show(1,truncate=False))
     train, test = test_train_split(assembled_df,0.7)
     print(train.show(1,truncate=False))
-    
 
-    # model_cs = current_model()
-    # pipeline = Pipeline(stages=[model_cs])
-    # grid = ParamGridBuilder().addGrid(model_cs.regParam, [0.0,0.1]) \
-    #     .addGrid(model_cs.elasticNetParam, [0.0, 1.0])\
-    #     .build()
-    # evaluator = BinaryClassificationEvaluator()
-    # cv = CrossValidator(estimator=pipeline,
-    #                  estimatorParamMaps=grid,
-    #                  evaluator=evaluator,
-    #                  numFolds=3)
-    # cvModel = cv.fit(train)
-    # lrprediction=cvModel.transform(test)
-    # evaluate(lrprediction)
+
+    model_cs = current_model()
+    pipeline = Pipeline(stages=[model_cs])
+    grid = ParamGridBuilder().addGrid(model_cs.regParam, [0.0,0.1]) \
+        .addGrid(model_cs.elasticNetParam, [0.0, 1.0])\
+        .build()
+    evaluator = BinaryClassificationEvaluator()
+    cv = CrossValidator(estimator=pipeline,
+                     estimatorParamMaps=grid,
+                     evaluator=evaluator,
+                     numFolds=3)
+    cvModel = cv.fit(train)
+    lrprediction=cvModel.transform(test)
+    evaluate(lrprediction)
     # print('Accuracy:', evaluator.evaluate(lrprediction))
     # print('AUC:', BinaryClassificationMetrics(lrprediction['label','prediction'].rdd).areaUnderROC)
     # spark.stop()
